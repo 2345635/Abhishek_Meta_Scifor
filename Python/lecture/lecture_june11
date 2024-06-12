@@ -1,0 +1,308 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM7H9pjpRFN8GJsCkvksJzj",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/2345635/Abhishek_Scifor/blob/main/Python/lecture/lecture_june11\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ug7PvJAD7BKn",
+        "outputId": "cc444f7c-0327-41fa-a85a-553af616a0b1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Model S\n",
+            "Tesla\n"
+          ]
+        }
+      ],
+      "source": [
+        "#ENCAPSULATION\n",
+        "\n",
+        "class Car:\n",
+        "    def __init__(self, brand, model, year):\n",
+        "        self.__brand = brand\n",
+        "        self.model = model\n",
+        "        self.year = year\n",
+        "\n",
+        "    def get_brand(self):\n",
+        "        return self.__brand\n",
+        "    def accelerate(self):\n",
+        "        print(f\"The {self.model} is accelerating!\")\n",
+        "\n",
+        "# Creating a object\n",
+        "my_car = Car(\"Tesla\", \"Model S\", 2023)\n",
+        "print(my_car.model)\n",
+        "print(my_car.get_brand())"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Polymorphism - describes the ability of something to have or to be displayed in more than one form."
+      ],
+      "metadata": {
+        "id": "IPfXAcix7qsk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#POLYMORPHISM\n",
+        "class Animal:\n",
+        "    def make_sound(self):\n",
+        "        print(\"Generic animal sound\")\n",
+        "class Dog(Animal):\n",
+        "    def make_sound(self):\n",
+        "        print(\"Woof!\")\n",
+        "class Cat(Animal):\n",
+        "    def make_sound(self):\n",
+        "        print(\"Meow!\")\n",
+        "def speak(animal):\n",
+        "    animal.make_sound()  # Polymorphic behavior\n",
+        "\n",
+        "dog = Dog()\n",
+        "cat = Cat()\n",
+        "\n",
+        "speak(dog)\n",
+        "speak(cat)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0anuUXGf7UoT",
+        "outputId": "8ff40d53-f897-49c0-bbf0-a229a2b22546"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Woof!\n",
+            "Meow!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "single level inheritance = The inheritance in which a single derived class is inherited from a single base class"
+      ],
+      "metadata": {
+        "id": "tTG4BLYr77fn"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Animal:\n",
+        "    def speak(self):\n",
+        "        print(\"Animal speaks\")\n",
+        "class Dog(Animal):\n",
+        "    def bark(self):\n",
+        "        print(\"Dog barks\")\n",
+        "dog = Dog()\n",
+        "dog.speak()\n",
+        "dog.bark()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sPkOhO_e7ozI",
+        "outputId": "03a07b21-1f1f-4310-e719-39b6fb18a30e"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Animal speaks\n",
+            "Dog barks\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "multilevel inheritance = The inheritance in which a class can be derived from another derived class"
+      ],
+      "metadata": {
+        "id": "ukWfRRHb8TU4"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Animal:\n",
+        "    def speak(self):\n",
+        "        print(\"Animal speaks\")\n",
+        "class Dog(Animal):\n",
+        "    def bark(self):\n",
+        "        print(\"Dog barks\")\n",
+        "class Puppy(Dog):\n",
+        "    def cry(self):\n",
+        "        print(\"Puppy cries\")\n",
+        "\n",
+        "# instance\n",
+        "puppy = Puppy()\n",
+        "puppy.speak()\n",
+        "puppy.bark()\n",
+        "puppy.cry()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b17VMHGd8cEe",
+        "outputId": "e07238cb-f608-433f-c083-8b259e6cf865"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Animal speaks\n",
+            "Dog barks\n",
+            "Puppy cries\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "multiplelevel inheritance"
+      ],
+      "metadata": {
+        "id": "YVrFWPfb8seR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Father:\n",
+        "    def skills(self):\n",
+        "        print(\"Father's skills\")\n",
+        "class Mother:\n",
+        "    def skills(self):\n",
+        "        print(\"Mother's skills\")\n",
+        "class Child(Father, Mother):\n",
+        "    def skills(self):\n",
+        "        super().skills()\n",
+        "        print(\"Child's skills\")\n",
+        "\n",
+        "#instance\n",
+        "child = Child()\n",
+        "mother = Mother()\n",
+        "child.skills()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RC_IDPyL85Zs",
+        "outputId": "b64ca0a1-2b4c-4e05-e5f4-f178e2deb92f"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Father's skills\n",
+            "Child's skills\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hierarchical inheritance = more than one class is derived from the parent class."
+      ],
+      "metadata": {
+        "id": "YRrqCjYd9JYO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Animal:\n",
+        "    def speak(self):\n",
+        "        print(\"Animal speaks\")\n",
+        "class Dog(Animal):\n",
+        "    def bark(self):\n",
+        "        print(\"Dog barks\")\n",
+        "class Cat(Animal):\n",
+        "    def meow(self):\n",
+        "        print(\"Cat meows\")\n",
+        "\n",
+        "#instances\n",
+        "dog = Dog()\n",
+        "cat = Cat()\n",
+        "\n",
+        "dog.speak()\n",
+        "dog.bark()\n",
+        "cat.speak()\n",
+        "cat.meow()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tgVbzmFT9pig",
+        "outputId": "f9e2ef9a-b38b-4e60-f5dd-5d221acfb080"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Animal speaks\n",
+            "Dog barks\n",
+            "Animal speaks\n",
+            "Cat meows\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
