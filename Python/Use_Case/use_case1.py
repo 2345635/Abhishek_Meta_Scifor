@@ -2,7 +2,7 @@ class Bank:
     def __init__(self, pin, balance):
         self._pin = pin
         self._balance = balance
-    def _verify_pin(self, pin):
+    def verify_pin(self, pin):
         return self._pin == pin
     def get_balance(self):
         return self._balance
@@ -10,7 +10,7 @@ class Bank:
         self._balance += amount
         print(f"Updated balance: {self._balance}")
     def withdraw(self, pin, amount):
-        if self._verify_pin(pin):
+        if self.verify_pin(pin):
             if self._balance >= amount:
                 self._update_balance(-amount)
                 print(f"Withdrawal successful. Withdrawn amount: {amount}")
@@ -19,7 +19,7 @@ class Bank:
         else:
             print("Invalid pin")
     def deposit(self, pin, amount):
-        if self._verify_pin(pin):
+        if self.verify_pin(pin):
             self._update_balance(amount)
             print(f"Deposit successful. Deposited amount: {amount}")
         else:
